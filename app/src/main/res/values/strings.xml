@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Elemental Beam</string>
+    <string name="facebook_app_id">1111644096088411</string>
+    <string name="fb_login_protocol_scheme">fb1111644096088411</string>
+    <string name="file_chooser_title">Choose image</string>
+    <string name="cannot_open_file_chooser_txt">Can not open file chooser</string>
+    <string name="camera_permission_granted_txt">Permission granted</string>
+    <string name="camera_permission_denied_txt">Permission denied</string>
+</resources>
