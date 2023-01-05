@@ -22,29 +22,49 @@
         android:theme="@style/Theme.ElementalBeam"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".ThirdAct"
+            android:name=".secondgame.RecordsActivity"
+            android:noHistory="true"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecondAct"
+            android:name=".secondgame.BonusSecGame"
+            android:noHistory="true"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FirstAct"
+            android:name=".thirdgame.ThirdAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FourthAct"
+            android:name=".secondgame.SecondAct"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".firstgame.FirstAct"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fourthgame.FourthAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -60,11 +80,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

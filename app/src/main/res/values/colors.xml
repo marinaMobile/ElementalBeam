@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bg_sec_clr_b">#6EA54C</color>
+    <color name="bg_sec_clr_w">#C8AB52</color>
+    <color name="bg_sec_clr_win">#EDD11F</color>
+    <color name="bg_sec_clr_bonus">#C88952</color>
 </resources>
