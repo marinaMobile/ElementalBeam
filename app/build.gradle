@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -80,5 +82,8 @@ dependencies {
     // Networking
     implementation "com.squareup.okhttp3:okhttp:{latest-version}"
     implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
+
+    //sasha
+    implementation 'me.relex:circleindicator:2.1.6'
 
 }

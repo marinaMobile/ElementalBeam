@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViev"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sasha_logo_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_level"
+        android:elevation="1dp"
+        android:layout_width="0dp"
+        android:background="#370E01"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:alpha="0.8"
+        android:fontFamily="@font/montserrat_black"
+        android:gravity="center"
+        android:text="game name"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageViev"
+        app:layout_constraintEnd_toEndOf="@id/imageViev"
+        app:layout_constraintStart_toStartOf="@id/imageViev" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:background="#370E01"
+        android:fontFamily="@font/montserrat_black"
+        android:gravity="center"
+        android:text="200$"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageViev"
+        app:layout_constraintEnd_toEndOf="@id/imageViev"
+        app:layout_constraintStart_toStartOf="@id/imageViev"
+        app:layout_constraintTop_toBottomOf="@id/tv_level" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
