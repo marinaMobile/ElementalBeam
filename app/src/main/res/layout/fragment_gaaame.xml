@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sasha_back"
+    android:background="@drawable/back_fruits"
     tools:context=".firstgame.GaaameFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -133,7 +133,7 @@
         android:fontFamily="@font/montserrat_black"
         android:text="your balance"
         android:textAllCaps="true"
-        android:textColor="#F8ECD9"
+        android:textColor="#D8D1FB"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -251,11 +251,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/opensans_extra_bold"
-        android:background="#DA943C"
+        android:background="#793CDA"
         android:text="one of the elements has gift inside, others are empty.\nIf you find that one you will winn 2xBet,\nin other case you receive nothing\n\n you have 1 try"
         android:gravity="center"
         android:textAllCaps="true"
-        android:textColor="#372303"
+        android:textColor="#110337"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@id/guideline_vert_95"
         app:layout_constraintStart_toStartOf="@id/guideline_vert_05"
