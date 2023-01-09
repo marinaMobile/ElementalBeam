@@ -33,7 +33,7 @@ val appModule = module {
     }
     single <Retrofit>(named("RetroDev")){
         Retrofit.Builder()
-            .baseUrl("http://brilliantpearl.live/")
+            .baseUrl("http://elementalbeam.live/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -66,7 +66,7 @@ fun provideGson(): Gson {
 
 val viewModelModule = module {
     viewModel (named("MainModel")){
-        ViMod(get())
+        ViMod((get(named("CountryRep"))), get(named("DevRep")), get(named("SharedPreferences")), get())
     }
     viewModel(named("BeamModel")) {
         BeamModel(get())
