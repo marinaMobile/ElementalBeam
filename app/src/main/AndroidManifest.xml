@@ -21,30 +21,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ElementalBeam"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="32">
         <activity
-            android:name=".ThirdAct"
+            android:name=".thirdgame.ThirdAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecondAct"
+            android:name=".secondgame.SecondAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FirstAct"
+            android:name=".firstgame.FirstAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FourthAct"
+            android:name=".fourthgame.FourthAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -82,6 +82,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgW12BwDzu2OA0vM1lmo2babxDpIBOdJ" />
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ed57ZDxqCD6TD7DJWcmf7cdlsEnOwLm2" />
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
     </application>
 
 </manifest>
