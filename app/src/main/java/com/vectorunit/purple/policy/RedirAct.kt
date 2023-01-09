@@ -4,7 +4,13 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.vectorunit.purple.MainCla.Companion.C1
+import com.vectorunit.purple.MainCla.Companion.appsCheckChe
+import com.vectorunit.purple.MainCla.Companion.codeCode
+import com.vectorunit.purple.MainCla.Companion.deepL
+import com.vectorunit.purple.MainCla.Companion.geoCo
 import com.vectorunit.purple.R
+import com.vectorunit.purple.firstgame.FirstAct
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
@@ -26,7 +32,7 @@ class RedirAct : AppCompatActivity() {
     fun getSharedData() {
 
         dep = shareP.getString(deepL, null).toString()
-        camp = shareP.getString(MainClass.C1, null).toString()
+        camp = shareP.getString(C1, null).toString()
         che = shareP.getString(appsCheckChe, null).toString()
         code = shareP.getString(geoCo, null).toString()
         cou = shareP.getString(codeCode, null).toString()
@@ -35,7 +41,7 @@ class RedirAct : AppCompatActivity() {
     }
 
     fun sort() {
-        val intentNorm = Intent(this@FillAct, PearlActivity::class.java)
+        val intentNorm = Intent(this@RedirAct, BeamAct::class.java)
 
         if(che=="1") {
             if(camp.contains("tdb2")&&dep.contains("tdb2")) {
@@ -52,7 +58,7 @@ class RedirAct : AppCompatActivity() {
                 finish()
             }
             else {
-                startActivity(Intent(this, Brilliant::class.java))
+                startActivity(Intent(this, FirstAct::class.java))
                 finish()
             }
         } else {
@@ -65,7 +71,7 @@ class RedirAct : AppCompatActivity() {
                 startActivity(intentNorm)
                 finish()
             } else {
-                startActivity(Intent(this, Brilliant::class.java))
+                startActivity(Intent(this, FirstAct::class.java))
                 finish()
             }
         }

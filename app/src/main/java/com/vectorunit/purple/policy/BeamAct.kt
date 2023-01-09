@@ -12,6 +12,9 @@ import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.appsflyer.AppsFlyerLib
+import com.vectorunit.purple.MainCla.Companion.C1
+import com.vectorunit.purple.MainCla.Companion.MAIN_ID
+import com.vectorunit.purple.MainCla.Companion.deepL
 import com.vectorunit.purple.databinding.ActivityBeamBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named

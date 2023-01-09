@@ -13,10 +13,27 @@ import org.koin.core.logger.Level
 import java.util.*
 
 class MainCla: Application() {
+
+    companion object {
+        const val ONESIGNAL_APP_ID = "f38a0369-f672-4bed-af24-2a19ee3447f2"
+        val myId: String = "myID"
+        var instId: String? = "instID"
+        var urlMain: String = "link"
+        var MAIN_ID: String? = "main_id"
+        var C1: String? = "c11"
+        const val myTrId = ""
+        val appsCheckChe: String = "appsCheckChe"
+        val geoCo: String = "geoCo"
+        //        val userCo: String = "userCo"
+        val codeCode: String = "uff"
+        val deepL: String = "deepL"
+        var AIR_BALANCE = 500
+    }
+
     override fun onCreate() {
         super.onCreate()
         OneSignal.initWithContext(this)
-        OneSignal.setAppId("f38a0369-f672-4bed-af24-2a19ee3447f2")
+        OneSignal.setAppId(ONESIGNAL_APP_ID)
 
         val shP = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         val settings = getSharedPreferences("PREFS_NAME", 0)

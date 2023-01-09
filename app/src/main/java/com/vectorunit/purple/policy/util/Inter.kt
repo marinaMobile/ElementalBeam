@@ -11,7 +11,7 @@ interface ApiInterface {
 }
 
 interface HostInterface {
-    @GET("bee.json")
+    @GET("file.json")
     suspend fun getDataDev(): Response<GeoDev>
 }
 

@@ -5,8 +5,14 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.vectorunit.purple.MainCla.Companion.C1
+import com.vectorunit.purple.MainCla.Companion.appsCheckChe
 import com.vectorunit.purple.policy.BeamAct
+import com.vectorunit.purple.policy.RedirAct
 import com.vectorunit.purple.policy.ViMod
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
@@ -23,11 +29,19 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val viewMainModel by viewModel<ViMod>(named("MainModel"))
+
+        GlobalScope.launch (Dispatchers.IO){
+            viewMainModel.getData()
+        }
+
 
         startActivity(Intent(this, BeamAct::class.java))
 
         viewMainModel.convers(this@MainActivity)
+
+        checkAppps()
 
         viewMainModel.fbDeee(this@MainActivity)
 
@@ -64,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nextAct() {
-        val intentNext = Intent(this@MainActivity, FillAct::class.java)
+        val intentNext = Intent(this@MainActivity, RedirAct::class.java)
         startActivity(intentNext)
         finish()
     }
