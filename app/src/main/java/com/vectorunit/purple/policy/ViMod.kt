@@ -11,7 +11,7 @@ class ViMod(val application: Application): ViewModel() {
 
     fun convers(cont: Context) {
         AppsFlyerLib.getInstance()
-            .init("", conversionDataListener, application)
+            .init("FYGucjvu3tc2ThYshUwBj8", conversionDataListener, application)
         AppsFlyerLib.getInstance().start(cont)
     }
     fun fbDeee(cont: Context) {
@@ -19,7 +19,9 @@ class ViMod(val application: Application): ViewModel() {
             cont
         ) { data: AppLinkData? ->
             data?.let {
-                val deepData = data.targetUri?.host.toString()
+                val deepData = data.targetUri?.host
+
+
             }
         }
     }

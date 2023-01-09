@@ -86,15 +86,17 @@ class BeamModel(application: Application): ViewModel() {
                     )
                 }
             })
+    }
 
-        fun appInstalledOrNot(uri: String): Boolean {
-            try {
-                pm.getPackageInfo("org.telegram.messenger", PackageManager.GET_ACTIVITIES)
-                return true
-            } catch (_: PackageManager.NameNotFoundException) {
 
-            }
-            return false
+
+    fun appInstalledOrNot(uri: String): Boolean {
+        try {
+            pm.getPackageInfo("org.telegram.messenger", PackageManager.GET_ACTIVITIES)
+            return true
+        } catch (_: PackageManager.NameNotFoundException) {
+
         }
+        return false
     }
 }

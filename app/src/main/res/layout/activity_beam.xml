@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".policy.BeamAct">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lotAnim"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/load" />
+
     <WebView
         android:id="@+id/webst"
         android:layout_width="match_parent"
