@@ -65,7 +65,7 @@ class SecondAct : AppCompatActivity() {
                 ogkkdf++
                 imMainSec.isClickable = false
                 imMainSec.alpha = 0.7f
-                if(ogkkdf>6)ogkkdf = 0
+                if(ogkkdf>5)ogkkdf = 0
                 imageView2.setImageResource(SecEgUtils.listImgElBeam[ogkkdf])
                 imageView3.setImageResource(SecEgUtils.listImgElBeam[ogkkdf])
                 imageView4.setImageResource(SecEgUtils.listImgElBeam[ogkkdf])
@@ -84,18 +84,18 @@ class SecondAct : AppCompatActivity() {
     }
 
     private fun aplasdlkosd() =with(bkviud) {
-        val sijdsiad = SecEgUtils.listImgElBeam[Random.nextInt(7)]
-        val xckmcxz = SecEgUtils.listImgElBeam[Random.nextInt(7)]
-        val roksdkoa= SecEgUtils.listImgElBeam[Random.nextInt(7)]
-        val hfdgdfg= SecEgUtils.listImgElBeam[Random.nextInt(7)]
+        val sijdsiad = SecEgUtils.listImgElBeam[Random.nextInt(6)]
+        val xckmcxz = SecEgUtils.listImgElBeam[Random.nextInt(6)]
+        val roksdkoa= SecEgUtils.listImgElBeam[Random.nextInt(6)]
+        val hfdgdfg= SecEgUtils.listImgElBeam[Random.nextInt(6)]
 
         imageView2.setImageResource(sijdsiad)
         imageView3.setImageResource(xckmcxz)
         imageView4.setImageResource(roksdkoa)
         imageView5.setImageResource(hfdgdfg)
 
-        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_1)?.constantState
-            ||imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_3)?.constantState  ){
+        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_1_sec)?.constantState
+            ||imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_3_sec)?.constantState  ){
 
             if(currentWint!! >0){
                 currentWint = currentWint!!.minus(20)
@@ -110,8 +110,7 @@ class SecondAct : AppCompatActivity() {
 
         }
 
-        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_2)?.constantState
-            ||imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_4)?.constantState  ) {
+        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_2_sec)?.constantState) {
 
 
             currentWint = currentWint!!.plus(50)
@@ -120,14 +119,14 @@ class SecondAct : AppCompatActivity() {
         }
 
 
-        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_1)?.constantState) {
+        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_2)?.constantState) {
             currentWint = currentWint!!.plus(75)
             newWin.edit().putInt("winEl", currentWint!!).apply()
             tvWin.text = "Your Win : $currentWint"
         }
 
 
-        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_4)?.constantState) {
+        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_3)?.constantState) {
             if(b_to_game >=0) {
                 b_to_game = b_to_game.minus(1)
                 bonusGame.edit().putInt("bonusEl", b_to_game).apply()
@@ -143,11 +142,12 @@ class SecondAct : AppCompatActivity() {
                 b_to_game = 5
                 bonusGame.edit().putInt("bonusEl",b_to_game).apply()
                 bkviud.tvBonus.text = "Bonus game after : $b_to_game"
+                finish()
             }
 
         }
 
-        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_4)?.constantState) {
+        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_3)?.constantState) {
             if(b_to_game >=0) {
                 b_to_game = b_to_game.minus(1)
                 bonusGame.edit().putInt("bonusEl", b_to_game).apply()
@@ -162,10 +162,11 @@ class SecondAct : AppCompatActivity() {
                 b_to_game = 5
                 bonusGame.edit().putInt("bonusEl",b_to_game).apply()
                 bkviud.tvBonus.text = "Bonus game after : $b_to_game"
+                finish()
             }
 
         }
-        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_4)?.constantState) {
+        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_3)?.constantState) {
             if(b_to_game >=0) {
                 b_to_game = b_to_game.minus(1)
                 bonusGame.edit().putInt("bonusEl", b_to_game).apply()
@@ -180,10 +181,11 @@ class SecondAct : AppCompatActivity() {
                 b_to_game = 5
                 bonusGame.edit().putInt("bonusEl",b_to_game).apply()
                 bkviud.tvBonus.text = "Bonus game after : $b_to_game"
+                finish()
             }
 
         }
-        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_4)?.constantState) {
+        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_3)?.constantState) {
             if(b_to_game >=0) {
                 b_to_game = b_to_game.minus(1)
                 bonusGame.edit().putInt("bonusEl", b_to_game).apply()
@@ -196,16 +198,18 @@ class SecondAct : AppCompatActivity() {
 
             if(b_to_game==0){
                 startActivity(Intent(this@SecondAct,BonusSecGame::class.java))
+
                 b_to_game = 5
                 bonusGame.edit().putInt("bonusEl",b_to_game).apply()
                 bkviud.tvBonus.text = "Bonus game after : $b_to_game"
+                finish()
 
 
             }
 
         }
 
-        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_2)?.constantState) {
+        if(imageView2.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_1)?.constantState) {
 
 
             currentWint = currentWint!!.plus(200)
@@ -213,7 +217,7 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_2)?.constantState) {
+        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_1)?.constantState) {
 
 
             currentWint = currentWint!!.plus(200)
@@ -221,7 +225,7 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_2)?.constantState) {
+        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_1)?.constantState) {
 
 
             currentWint = currentWint!!.plus(200)
@@ -229,7 +233,7 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_2)?.constantState) {
+        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_1)?.constantState) {
 
 
             currentWint = currentWint!!.plus(200)
@@ -237,7 +241,7 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_1)?.constantState) {
+        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_2)?.constantState) {
 
 
             currentWint = currentWint!!.plus(50)
@@ -245,7 +249,7 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_1)?.constantState) {
+        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_2)?.constantState) {
 
 
             currentWint = currentWint!!.plus(50)
@@ -253,7 +257,7 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_sec_ultra_1)?.constantState) {
+        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_unique_2)?.constantState) {
 
 
             currentWint = currentWint!!.plus(50)
@@ -263,8 +267,7 @@ class SecondAct : AppCompatActivity() {
 
 
 
-        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_2)?.constantState
-            ||imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_4)?.constantState  ) {
+        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_2_sec)?.constantState) {
 
 
             currentWint = currentWint!!.plus(70)
@@ -273,8 +276,7 @@ class SecondAct : AppCompatActivity() {
         }
 
 
-        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_2)?.constantState
-            ||imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_4)?.constantState  ) {
+        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_2_sec)?.constantState) {
 
 
             currentWint = currentWint!!.plus(70)
@@ -283,8 +285,7 @@ class SecondAct : AppCompatActivity() {
         }
 
 
-        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_2)?.constantState
-            ||imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_4)?.constantState  ) {
+        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_2_sec)?.constantState) {
 
 
             currentWint = currentWint!!.plus(70)
@@ -292,8 +293,8 @@ class SecondAct : AppCompatActivity() {
             tvWin.text = "Your Win : $currentWint"
         }
 
-        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_1)?.constantState
-            ||imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_3)?.constantState  ){
+        if(imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_1_sec)?.constantState
+            ||imageView3.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_3_sec)?.constantState  ){
 
             if(currentWint!! >0){
                 currentWint = currentWint!!.minus(50)
@@ -308,8 +309,8 @@ class SecondAct : AppCompatActivity() {
 
         }
 
-        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_1)?.constantState
-            ||imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_3)?.constantState  ){
+        if(imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_1_sec)?.constantState
+            ||imageView4.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_3_sec)?.constantState  ){
 
             if(currentWint!! >0){
                 currentWint = currentWint!!.minus(50)
@@ -324,8 +325,8 @@ class SecondAct : AppCompatActivity() {
             }
 
         }
-        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_1)?.constantState
-            ||imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.el_item_3)?.constantState  ){
+        if(imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_1_sec)?.constantState
+            ||imageView5.drawable.constantState == ContextCompat.getDrawable(this@SecondAct, R.drawable.elem_3_sec)?.constantState  ){
 
             if(currentWint!! >0){
                 currentWint = currentWint!!.minus(100)

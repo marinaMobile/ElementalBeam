@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background_sec"
+    android:background="@drawable/bg_joe"
     android:layout_height="match_parent"
     tools:context=".secondgame.BonusSecGame">
 
@@ -28,7 +28,7 @@
             android:contentDescription="fst_img"
             app:layout_column="0"
             app:layout_row="0"
-            app:srcCompat="@drawable/el_item_1" />
+            app:srcCompat="@drawable/elem_1_sec" />
 
         <ImageView
             android:id="@+id/dcgf"
@@ -37,7 +37,7 @@
             android:contentDescription="sec_img"
             app:layout_column="1"
             app:layout_row="0"
-            app:srcCompat="@drawable/el_item_2" />
+            app:srcCompat="@drawable/elem_2_sec" />
 
         <ImageView
             android:id="@+id/eosp"
@@ -46,7 +46,7 @@
             android:contentDescription="thrd_img"
             app:layout_column="2"
             app:layout_row="0"
-            app:srcCompat="@drawable/el_item_3" />
+            app:srcCompat="@drawable/elem_3_sec" />
 
 
         <ImageView
@@ -58,7 +58,7 @@
             android:contentDescription="fourd_img"
             app:layout_column="0"
             app:layout_row="1"
-            app:srcCompat="@drawable/el_item_4" />
+            app:srcCompat="@drawable/elem_unique_1" />
 
         <ImageView
             android:id="@+id/podll"
@@ -68,7 +68,7 @@
             android:contentDescription="fifth_img"
             app:layout_column="1"
             app:layout_row="1"
-            app:srcCompat="@drawable/el_sec_ultra_1" />
+            app:srcCompat="@drawable/elem_unique_2" />
 
         <ImageView
             android:id="@+id/udiwqdo"
@@ -78,7 +78,7 @@
             android:contentDescription="sixth_img"
             app:layout_column="2"
             app:layout_row="1"
-            app:srcCompat="@drawable/el_sec_ultra_4" />
+            app:srcCompat="@drawable/elem_unique_3" />
 
 
     </androidx.gridlayout.widget.GridLayout>
@@ -157,7 +157,7 @@
         app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/usdai"
-        app:srcCompat="@drawable/time_sec" />
+        app:srcCompat="@drawable/timer_joe" />
 
 
     <ImageView
@@ -169,7 +169,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.26"
-        app:srcCompat="@drawable/el_sec_ultra_4" />
+        app:srcCompat="@drawable/elem_unique_3" />
 
     <TextView
         android:id="@+id/text_2"
@@ -205,7 +205,7 @@
         android:id="@+id/text_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click on magic Anubis item"
+        android:text="Click on  the magic diamond"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"

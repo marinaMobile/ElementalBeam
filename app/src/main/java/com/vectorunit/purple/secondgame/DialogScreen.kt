@@ -13,14 +13,23 @@ object DialogScreen {
     fun showdialog(context: Context,winCurrent : Int, doubles : Int){
         var dialog : AlertDialog? = null
         var sharedwin : SharedPreferences? = null
+        var calc = 0
         val builder = AlertDialog.Builder(context)
         val binding = DialogSecGameBinding.inflate(LayoutInflater.from(context))
         builder.setView(binding.root)
          sharedwin = context.getSharedPreferences("winEl",AppCompatActivity.MODE_PRIVATE)
 
         binding.tvCatched.text = "You catched $doubles items"
-        val calc = winCurrent * doubles / 2
-        sharedwin.edit().putInt("winEl",calc).apply()
+
+        if(doubles>2){
+            calc = winCurrent * doubles / 2
+            sharedwin.edit().putInt("winEl",calc).apply()
+        } else {
+            calc = winCurrent * doubles
+            sharedwin.edit().putInt("winEl",calc).apply()
+        }
+
+
         binding.tvCalc.text = "Your new Win is : $calc"
         binding.button2.setOnClickListener {
             context.startActivity(Intent(context,SecondAct::class.java))

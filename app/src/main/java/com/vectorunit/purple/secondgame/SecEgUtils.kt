@@ -5,13 +5,12 @@ import com.vectorunit.purple.R
 object SecEgUtils {
 
     val listImgElBeam = listOf(
-        R.drawable.el_item_1,
-        R.drawable.el_item_2,
-        R.drawable.el_sec_ultra_1,
-        R.drawable.el_item_3,
-        R.drawable.el_sec_ultra_2,
-        R.drawable.el_sec_ultra_4,
-        R.drawable.el_item_4,
+        R.drawable.elem_1_sec,
+        R.drawable.elem_unique_1,
+        R.drawable.elem_3_sec,
+        R.drawable.elem_unique_2,
+        R.drawable.elem_2_sec,
+        R.drawable.elem_unique_3,
     )
 
 

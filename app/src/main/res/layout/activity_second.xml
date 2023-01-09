@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background_sec"
+    android:background="@drawable/bg_joe"
     android:layout_height="match_parent"
     tools:context=".secondgame.SecondAct">
 
@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap on Anubis artifact and launch your luck"
+        android:text="Tap on crown and launch your  king's luck"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="16sp"
@@ -25,53 +25,53 @@
     <ImageView
         android:id="@+id/im_main_sec"
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.29000002"
-        app:srcCompat="@drawable/el_sec_main" />
+        app:layout_constraintVertical_bias="0.32999998"
+        app:srcCompat="@drawable/elem_main" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toTopOf="@+id/im_main_sec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/el_item_1" />
+        app:layout_constraintVertical_bias="0.69"
+        app:srcCompat="@drawable/elem_1_sec" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="@+id/im_main_sec"
         app:layout_constraintEnd_toStartOf="@+id/im_main_sec"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/im_main_sec"
-        app:srcCompat="@drawable/el_item_4" />
+        app:srcCompat="@drawable/elem_2_sec" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="@+id/im_main_sec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/im_main_sec"
         app:layout_constraintTop_toTopOf="@+id/im_main_sec"
-        app:srcCompat="@drawable/el_item_2" />
+        app:srcCompat="@drawable/elem_unique_1" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="80dp"
         app:layout_constraintEnd_toEndOf="@+id/im_main_sec"
         app:layout_constraintStart_toStartOf="@+id/im_main_sec"
         app:layout_constraintTop_toBottomOf="@+id/im_main_sec"
-        app:srcCompat="@drawable/el_item_3" />
+        app:srcCompat="@drawable/elem_3_sec" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
