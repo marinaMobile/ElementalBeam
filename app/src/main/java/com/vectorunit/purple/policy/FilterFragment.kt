@@ -77,13 +77,11 @@ class FilterFragment : Fragment() {
                 if(appCamp!!.contains("tdb2")) {
                     shareP.edit().putString("link", linkApps).apply()
                     intentBeam.putExtra("WebInt", "campaign")
-                    Toast.makeText(mContext, "Apps", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else if (deepSt!=null||countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkFB).apply()
                     intentBeam.putExtra("WebInt", "deepLink")
-                    Toast.makeText(mContext, "Deep", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else {
@@ -94,13 +92,11 @@ class FilterFragment : Fragment() {
                 if(deepSt!=null) {
                     shareP.edit().putString("link", linkFBNullApps).apply()
                     intentBeam.putExtra("WebInt", "deepLinkNOApps")
-                    Toast.makeText(mContext, "DeepNoAps", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else if (countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkMT).apply()
                     intentBeam.putExtra("WebInt", "geo")
-                    Toast.makeText(mContext, "GEO", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else {
