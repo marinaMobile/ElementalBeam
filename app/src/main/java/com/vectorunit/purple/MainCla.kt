@@ -41,6 +41,8 @@ class MainCla: Application() {
         // Branch object initialization
         Branch.getAutoInstance(this)
 
+
+
         val shP = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         val settings = getSharedPreferences("PREFS_NAME", 0)
 

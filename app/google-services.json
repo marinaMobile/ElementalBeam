@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "506285533205",
+    "project_id": "elemental-beam",
+    "storage_bucket": "elemental-beam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506285533205:android:fcd94e811cd8fee101461c",
+        "android_client_info": {
+          "package_name": "com.vectorunit.purple"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506285533205-mmutotqe8s4hock0dmv97qqbcm0nag9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOKFXlsnzn0pY2-XYylUuMUO916HuX9fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506285533205-mmutotqe8s4hock0dmv97qqbcm0nag9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

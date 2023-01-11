@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         checkAppps()
 
-        viewMainModel.fbDeee(this@MainActivity)
+//        viewMainModel.fbDeee(this@MainActivity)
 
         Branch.sessionBuilder(this).withCallback { branchUniversalObject, linkProperties, error ->
             if (error != null) {

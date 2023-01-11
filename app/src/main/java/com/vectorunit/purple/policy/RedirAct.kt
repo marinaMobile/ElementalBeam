@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.vectorunit.purple.MainCla.Companion.C1
 import com.vectorunit.purple.MainCla.Companion.appsCheckChe
 import com.vectorunit.purple.MainCla.Companion.codeCode
@@ -11,6 +12,8 @@ import com.vectorunit.purple.MainCla.Companion.deepL
 import com.vectorunit.purple.MainCla.Companion.geoCo
 import com.vectorunit.purple.R
 import com.vectorunit.purple.firstgame.FirstAct
+import io.branch.referral.util.BRANCH_STANDARD_EVENT
+import io.branch.referral.util.BranchEvent
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
@@ -27,6 +30,10 @@ class RedirAct : AppCompatActivity() {
         setContentView(R.layout.activity_redir)
 
         getSharedData()
+
+        BranchEvent(BRANCH_STANDARD_EVENT.VIEW_ITEM).setDescription("NoChannelButFromRedirect").logEvent(this@RedirAct)
+        Log.d("Branch Check", "I'm here in REDIRACT, branch bitch! No source though")
+
     }
 
     fun getSharedData() {

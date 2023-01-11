@@ -23,7 +23,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="32">
         <activity
-            android:name=".RedirAct"
+            android:name=".policy.RedirAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -89,9 +89,16 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgW12BwDzu2OA0vM1lmo2babxDpIBOdJ" />
         <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ed57ZDxqCD6TD7DJWcmf7cdlsEnOwLm2" />
         <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
-    </application>
 
+    </application>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="text/plain" />
+        </intent>
+    </queries>
 </manifest>
