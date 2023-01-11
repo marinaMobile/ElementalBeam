@@ -4,7 +4,10 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.*
 import androidx.core.os.bundleOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,6 +17,7 @@ import com.appsflyer.AFInAppEventParameterName
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.MainCla.Companion.C1
@@ -33,12 +37,19 @@ import kotlinx.coroutines.launch
 
 class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRepo, private val shP: SharedPreferences, val application: Application): ViewModel() {
 
-
     init {
         viewModelScope.launch (Dispatchers.IO){
             getAdvertisingIdClient()
         }
+        viewModelScope.launch (Dispatchers.Main){
+            getData()
+        }
     }
+
+
+    private val _data = MutableLiveData<CountryCodeJS>()
+    val data: LiveData<CountryCodeJS>
+        get() = _data
 
 
     private val _countryCode = MutableLiveData<CountryCodeJS>()
@@ -46,25 +57,30 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
         get() = _countryCode
 
     private val _geo = MutableLiveData<GeoDev>()
-    val geoGode: LiveData<GeoDev>
+    val geo: LiveData<GeoDev>
         get() = _geo
 
 
+    private val _appsData = MutableLiveData<String>()
+    val appsData: LiveData<String>
+        get() = _appsData
+
+    private val _deepS = MutableLiveData<String>()
+    val deepS: LiveData<String>
+        get() = _deepS
+
+
+    private val _mainId = MutableLiveData<String?>()
+    val mainId: LiveData<String?>
+        get() = _mainId
 
     suspend fun getData() {
-        val counr = mainRepository.getDat().body()?.cou.toString()
-        Log.d("counr", "getData: $counr")
-        shP.edit().putString(MainCla.codeCode, counr).apply()
+        _countryCode.postValue(mainRepository.getDat().body())
         getDevData()
     }
 
     suspend fun getDevData() {
-        val link = devRepo.getDataDev().body()?.view
-        val apsC = devRepo.getDataDev().body()?.appsChecker
-        val go = devRepo.getDataDev().body()?.geo
-        shP.edit().putString(urlMain, link).apply()
-        shP.edit().putString(appsCheckChe, apsC).apply()
-        shP.edit().putString(geoCo, go).apply()
+        _geo.postValue(devRepo.getDataDev().body())
     }
 
     fun convers(cont: Context) {
@@ -72,23 +88,23 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
             .init("FYGucjvu3tc2ThYshUwBj8", conversionDataListener, application)
         AppsFlyerLib.getInstance().start(cont)
     }
-//    fun fbDeee(cont: Context) {
-//        AppLinkData.fetchDeferredAppLinkData(
-//            cont
-//        ) { data: AppLinkData? ->
-//            data?.let {
-//                val deepData = data.targetUri?.host
-//                shP.edit().putString(deepL, deepData).apply()
-//
-//            }
-//        }
-//    }
+
+    fun fbDeee(cont: Context) {
+        AppLinkData.fetchDeferredAppLinkData(
+            cont
+        ) { data: AppLinkData? ->
+            data?.let {
+                val deepData = data.targetUri?.host.toString()
+                shP.edit().putString("deepSt", deepData).apply()
+            }
+        }
+    }
 
     private val conversionDataListener  = object : AppsFlyerConversionListener {
         override fun onConversionDataSuccess(data: MutableMap<String, Any>?) {
             val dataGotten = data?.get("campaign").toString()
-            Log.d("TESTAG", "onConversionDataSuccess: $data")
-            shP.edit().putString(C1, dataGotten).apply()
+            _appsData.postValue(dataGotten)
+
             val bundle = Bundle()
             val instance = FirebaseAnalytics.getInstance(application.applicationContext)
             var str = "opened_firstly"
@@ -131,8 +147,9 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
     fun getAdvertisingIdClient() {
         val advertisingIdClient = AdvertisingIdClient(application)
         advertisingIdClient.start()
-        val idUserAdvertising = advertisingIdClient.info.id
-        shP.edit().putString(MAIN_ID, idUserAdvertising).apply()
-        Log.d("AdvertId", "getAdvertisingIdClient: $idUserAdvertising")
+        val idUserAdvertising = advertisingIdClient.info.id.toString()
+        Log.d("AdvertId", idUserAdvertising)
+        _mainId.postValue(idUserAdvertising)
     }
+
 }

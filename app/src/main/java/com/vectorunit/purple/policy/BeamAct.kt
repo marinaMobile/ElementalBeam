@@ -14,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.appsflyer.AppsFlyerLib
 import com.vectorunit.purple.MainCla.Companion.C1
 import com.vectorunit.purple.MainCla.Companion.MAIN_ID
+import com.vectorunit.purple.MainCla.Companion.aps_id
 import com.vectorunit.purple.MainCla.Companion.deepL
+import com.vectorunit.purple.MainCla.Companion.myId
 import com.vectorunit.purple.databinding.ActivityBeamBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
@@ -79,6 +81,7 @@ class BeamAct : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+                saveUrl(url)
             }
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -185,69 +188,34 @@ class BeamAct : AppCompatActivity() {
         val sharPre = getSharedPreferences("SHARED_PREF",
             Context.MODE_PRIVATE)
 
-        val pack = application.packageName.toString()
-
-        val intent = intent
-        val str = intent.getStringExtra("WebInt")
-
-
-        val myTrId = sharPre.getString("myId", null)
-        val myInstId: String? = sharPre.getString("instId", null)
-        val cpOne: String? = sharPre.getString(C1, null)
-        val dpOne: String? = sharPre.getString(deepL, null)
-        val mainId: String? = sharPre.getString(MAIN_ID, "null")
-        val afId = AppsFlyerLib.getInstance().getAppsFlyerUID(this)
-        AppsFlyerLib.getInstance().setCollectAndroidID(true)
-
-
-        val one = "deviceID="
-        val subOne = "sub_id_1="
-        val thrhtrhtrhtrht = "ad_id="
-        val fofofofofofofofofo = "sub_id_4="
-        val fififififififififif = "sub_id_5="
-        val sisisisifsisis = "sub_id_6="
-
-        val lololololololo = "naming"
-        val trololo = "deeporg"
-
-
-        val kiokjjlikjhmkij = Build.VERSION.RELEASE
-
-//        val linkAB: String? = sharPre.getString(urlMain, null)
-
-        val linkAB = "http://elementalbeam.live/go.php?to=2&"
+        val link = sharPre.getString("link", null)
+        val myTrId = sharPre.getString(myId, null)
+        val afId = sharPre.getString(aps_id, null)
 
         val linkNO = "https://www.privacy"
         val linkNT = "policies.com/live/"
         val linkNTH = "e0638d9d-11f4-4194-af55-8a8b10c66d2d"
 
-        var aft = ""
+        val str = Intent().getStringExtra("WebInt")
+
+        Log.d("TESTAG", "urururururururur: $link")
 
         when (str) {
-            "MT" -> {
-                aft =
-                    "$linkAB$one$myTrId&$thrhtrhtrhtrht$myInstId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$lololololololo"
-                viewBeamModel.pushToOS(myTrId.toString())
-                Log.d("TESTAG", "urururururururur tracker: $aft")
+            "campaign" -> {
+                viewBeamModel.pushToOS(afId.toString())
             }
             "deepLink" -> {
-                aft ="$linkAB$subOne$dpOne&$one$afId&$thrhtrhtrhtrht$mainId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$trololo"
-                viewBeamModel.pushToOS(myTrId.toString())
-                Log.d("TESTAG", "urururururururur deep: $aft")
-            }
-            "campaign" -> {
-                aft =
-                    "$linkAB$subOne$cpOne&$one$afId&$thrhtrhtrhtrht$mainId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$lololololololo"
                 viewBeamModel.pushToOS(afId.toString())
-                Log.d("TESTAG", "urururururururur apps: $aft")
             }
-            "policy" -> {
-                aft = "$linkNO$linkNT$linkNTH"
-                Log.d("TESTAG", "urururururururur policy: $aft")
+            "deepLinkNOApps" -> {
+                viewBeamModel.pushToOS(myTrId.toString())
+            }
+            "geo" -> {
+                viewBeamModel.pushToOS(myTrId.toString())
             }
         }
 
-        return sharPre.getString("SAVED_URL", aft).toString()
+        return sharPre.getString("SAVED_URL", link).toString()
     }
 
     var firsl = ""

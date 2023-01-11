@@ -21,6 +21,7 @@ class MainCla: Application() {
         var instId: String? = "instID"
         var urlMain: String = "link"
         var MAIN_ID: String? = "main_id"
+        var aps_id: String? = "main_id"
         var C1: String? = "c11"
         const val myTrId = ""
         val appsCheckChe: String = "appsCheckChe"
@@ -29,6 +30,7 @@ class MainCla: Application() {
         val codeCode: String = "uff"
         val deepL: String = "deepL"
         var AIR_BALANCE = 500
+        var defaultValue = "null"
     }
 
     override fun onCreate() {
@@ -54,12 +56,11 @@ class MainCla: Application() {
 
         if (settings.getBoolean("my_first_time", true)) {
             trackerParams.setCustomUserId(IDIN)
-            shP.edit().putString("myId", IDIN).apply()
-            shP.edit().putString("instId", instID).apply()
+            shP.edit().putString(myId, IDIN).apply()
+            shP.edit().putString(instId, instID).apply()
             settings.edit().putBoolean("my_first_time", false).apply()
-
         } else {
-            val shIDIN = shP.getString("myId", IDIN)
+            val shIDIN = shP.getString(myId, IDIN)
             trackerParams.setCustomUserId(shIDIN)
         }
         MyTracker.initTracker("88792592140372975184", this)
