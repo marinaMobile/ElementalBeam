@@ -80,7 +80,7 @@ class FilterFragment : Fragment() {
                     Toast.makeText(mContext, "Apps", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
-                } else if (deepSt!!.contains("tdb2")||countryDev!!.contains(count.toString())) {
+                } else if (deepSt!=null||countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkFB).apply()
                     intentBeam.putExtra("WebInt", "deepLink")
                     Toast.makeText(mContext, "Deep", Toast.LENGTH_SHORT).show()
