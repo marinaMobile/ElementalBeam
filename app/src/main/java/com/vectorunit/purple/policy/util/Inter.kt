@@ -31,10 +31,10 @@ data class CountryCodeJS(
 
 @Keep
 data class GeoDev(
-    @SerializedName("ge")
+    @SerializedName("geo")
     val geo: String,
-    @SerializedName("vi")
+    @SerializedName("view")
     val view: String,
-    @SerializedName("aps")
+    @SerializedName("appsChecker")
     val appsChecker: String,
 )
