@@ -4,18 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".policy.RedirAct">
+    tools:context=".policy.RedirAct"
+    android:background="@drawable/baba">
 
-    <TextView
+    <Button
+        android:id="@+id/firstBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THIS IS REDIRECT"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="60dp"
-        android:layout_margin="32dp"
-        android:gravity="center"/>
+        android:text="First"/>
+
+    <Button
+        android:id="@+id/secBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/firstBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Second"/>
+
+    <Button
+        android:id="@+id/polBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/secBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Policy"/>
+
+
+    <Button
+        android:id="@+id/thirdBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/polBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Third"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
