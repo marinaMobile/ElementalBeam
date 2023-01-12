@@ -22,6 +22,24 @@
         android:theme="@style/Theme.ElementalBeam"
         android:usesCleartextTraffic="true"
         tools:targetApi="32">
+
+
+        <activity
+            android:name=".secondgame.RecordsActivity"
+            android:noHistory="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".secondgame.BonusSecGame"
+            android:noHistory="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".policy.RedirAct"
             android:exported="false">
