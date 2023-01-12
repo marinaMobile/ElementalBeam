@@ -118,7 +118,7 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
                     instance.logEvent(str, bundle)
 
                     Event.buildWithEventType(EventType.SEARCH)
-                        .setName("ACI_Search").send()
+                        .setName("ACI_Youtube").send()
                 }
                 "ACI_Display" -> {
                     BranchEvent(BRANCH_STANDARD_EVENT.RATE).setDescription("ACI_Display").logEvent(application.applicationContext)

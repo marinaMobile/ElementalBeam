@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
     id 'com.google.gms.google-services'
 }
 
@@ -94,5 +96,8 @@ dependencies {
     def kochava_tracker_version = "4.2.1"
     implementation("com.kochava.tracker:tracker:$kochava_tracker_version")
     implementation("com.kochava.tracker:events:$kochava_tracker_version")
+
+    //sasha
+    implementation 'me.relex:circleindicator:2.1.6'
 
 }
