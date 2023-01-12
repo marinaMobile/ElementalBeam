@@ -26,6 +26,7 @@ import io.branch.referral.util.BRANCH_STANDARD_EVENT
 import io.branch.referral.util.BranchEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRepo, private val shP: SharedPreferences, val application: Application): ViewModel() {
@@ -153,7 +154,6 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
         val advertisingIdClient = AdvertisingIdClient(application)
         advertisingIdClient.start()
         val idUserAdvertising = advertisingIdClient.info.id.toString()
-        Log.d("AdvertId", idUserAdvertising)
         _mainId.postValue(idUserAdvertising)
     }
 

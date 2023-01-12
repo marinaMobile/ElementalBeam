@@ -11,13 +11,14 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.vectorunit.purple.R
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
 
 class BeforeFilter : Fragment() {
 
-    val viewMainModel by viewModel<ViMod>(named("MainModel"))
+    val viewMainModel by activityViewModel<ViMod>(named("MainModel"))
     val shareP: SharedPreferences by inject(named("SharedPreferences"))
     lateinit var appCamp: String
     private lateinit var mContext: Context
@@ -44,17 +45,18 @@ class BeforeFilter : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val checkFly = shareP.getString("apps", null)
+        val appsCamp = shareP.getString("appCamp", null)
 
-        if (checkFly == "1") {
-            viewMainModel.convers(mContext)
-            viewMainModel.appsData.observe(viewLifecycleOwner) {
-                if (it != null) {
-                    appCamp = it.toString()
-                    shareP.edit().putString("appCamp", appCamp).apply()
-                    findNavController().navigate(R.id.action_beforeFilter_to_filterFragment)
+        if (checkFly=="1" &&appsCamp == null) {
+                viewMainModel.convers(mContext)
+                viewMainModel.appsData.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        appCamp = it.toString()
+                        shareP.edit().putString("appCamp", appCamp).apply()
+                        findNavController().navigate(R.id.action_beforeFilter_to_filterFragment)
+                    }
                 }
-            }
-        } else {
+            } else {
             findNavController().navigate(R.id.action_beforeFilter_to_filterFragment)
         }
     }

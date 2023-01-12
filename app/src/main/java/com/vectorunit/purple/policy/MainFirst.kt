@@ -12,6 +12,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.vectorunit.purple.R
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
@@ -22,7 +23,7 @@ class MainFirst : Fragment() {
     lateinit var deepSt: String
 
     val shareP: SharedPreferences by inject(named("SharedPreferences"))
-    val viewMainModel by viewModel<ViMod>(named("MainModel"))
+    val viewMainModel by activityViewModel<ViMod>(named("MainModel"))
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,17 +43,6 @@ class MainFirst : Fragment() {
         viewMainModel.fbDeee(mContext)
 
         findNavController().navigate(R.id.action_mainFirst_to_countryFragm)
-
-
-//        viewMainModel.deepS.observeForever {
-//            if(it!=null){
-//                deepSt = it.toString()
-//                shareP.edit().putString("deepSt", deepSt).apply()
-//            } else {
-//                shareP.edit().putString("deepSt", "null").apply()
-//            }
-//
-//        }
 
     }
 }

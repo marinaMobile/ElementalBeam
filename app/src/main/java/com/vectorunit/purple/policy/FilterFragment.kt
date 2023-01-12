@@ -8,13 +8,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appsflyer.AppsFlyerLib
 import com.vectorunit.purple.BuildConfig
 import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.MainCla.Companion.aps_id
 import com.vectorunit.purple.R
+import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
@@ -77,7 +77,6 @@ class FilterFragment : Fragment() {
                 if(appCamp!!.contains("tdb2")) {
                     shareP.edit().putString("link", linkApps).apply()
                     intentBeam.putExtra("WebInt", "campaign")
-                    Toast.makeText(mContext, "Apps", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else if (deepSt!=null||countryDev!!.contains(count.toString())) {
@@ -94,7 +93,6 @@ class FilterFragment : Fragment() {
                 if(deepSt!=null) {
                     shareP.edit().putString("link", linkFBNullApps).apply()
                     intentBeam.putExtra("WebInt", "deepLinkNOApps")
-                    Toast.makeText(mContext, "DeepNoAps", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else if (countryDev!!.contains(count.toString())) {

@@ -15,13 +15,14 @@ import androidx.navigation.fragment.findNavController
 import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.R
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
 
 class SecondMainFragment : Fragment() {
 
-    val viewMainModel by viewModel<ViMod>(named("MainModel"))
+    val viewMainModel by activityViewModel<ViMod>(named("MainModel"))
     lateinit var countryDev: String
     lateinit var wv: String
     lateinit var apps: String
@@ -53,27 +54,25 @@ class SecondMainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewMainModel.mainId.observe(viewLifecycleOwner) {
-            if (it!=null) {
+            if (it != null) {
                 val main = it.toString()
                 shareP.edit().putString("mainId", main).apply()
             }
         }
 
+            viewMainModel.geo.observe(viewLifecycleOwner) {
+                if (it != null) {
 
-        viewMainModel.geo.observe(viewLifecycleOwner) {
-            if (it!=null) {
+                    countryDev = it.geo
+                    apps = it.appsChecker
+                    wv = it.view
 
-                countryDev = it.geo
-                apps = it.appsChecker
-                wv = it.view
+                    shareP.edit().putString("countryDev", countryDev).apply()
+                    shareP.edit().putString("apps", apps).apply()
+                    shareP.edit().putString("wv", wv).apply()
 
-                shareP.edit().putString("countryDev",countryDev).apply()
-                shareP.edit().putString("apps",apps).apply()
-                shareP.edit().putString("wv",wv).apply()
-
-
-                findNavController().navigate(R.id.action_secondMainFragment_to_beforeFilter)
+                    findNavController().navigate(R.id.action_secondMainFragment_to_beforeFilter)
+                }
             }
-        }
     }
 }
