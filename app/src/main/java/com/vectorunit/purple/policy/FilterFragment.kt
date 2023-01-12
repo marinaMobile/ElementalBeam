@@ -8,13 +8,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.appsflyer.AppsFlyerLib
 import com.vectorunit.purple.BuildConfig
 import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.MainCla.Companion.aps_id
 import com.vectorunit.purple.R
+import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
@@ -22,6 +22,8 @@ import org.koin.core.qualifier.named
 class FilterFragment : Fragment() {
     private lateinit var mContext: Context
     val shareP: SharedPreferences by inject(named("SharedPreferences"))
+
+//    val activity = getActivity()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -50,8 +52,8 @@ class FilterFragment : Fragment() {
         val myTrId = shareP.getString(MainCla.myId, null)
         val myInstId: String? = shareP.getString(MainCla.instId, null)
 
-        val intentBeam = Intent(activity, BeamAct::class.java)
-        val intentGame = Intent(activity, RedirAct::class.java)
+        val intentBeam = Intent(requireActivity(), BeamAct::class.java)
+        val intentGame = Intent(requireActivity(), RedirAct::class.java)
 
         val one = "deviceID="
         val subOne = "sub_id_1="
@@ -74,34 +76,34 @@ class FilterFragment : Fragment() {
 
         when(apps) {
             "1" ->
-                if(appCamp!!.contains("tdb2")) {
+                if(appCamp!!.contains("Organic")) {
                     shareP.edit().putString("link", linkApps).apply()
                     intentBeam.putExtra("WebInt", "campaign")
                     startActivity(intentBeam)
-                    activity?.finish()
+                    requireActivity().finish()
                 } else if (deepSt!=null||countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkFB).apply()
                     intentBeam.putExtra("WebInt", "deepLink")
                     startActivity(intentBeam)
-                    activity?.finish()
+                    requireActivity().finishAffinity()
                 } else {
                     startActivity(intentGame)
-                    activity?.finish()
+                    requireActivity().finish()
                 }
             "0" ->
                 if(deepSt!=null) {
                     shareP.edit().putString("link", linkFBNullApps).apply()
                     intentBeam.putExtra("WebInt", "deepLinkNOApps")
                     startActivity(intentBeam)
-                    activity?.finish()
+                    requireActivity().finish()
                 } else if (countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkMT).apply()
                     intentBeam.putExtra("WebInt", "geo")
                     startActivity(intentBeam)
-                    activity?.finish()
+                    requireActivity().finish()
                 } else {
                     startActivity(intentGame)
-                    activity?.finish()
+                    requireActivity().finish()
                 }
         }
     }

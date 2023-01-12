@@ -44,17 +44,19 @@ class BeforeFilter : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val checkFly = shareP.getString("apps", null)
+        val appsCamp = shareP.getString("appCamp", null)
+        Toast.makeText(mContext, appsCamp, Toast.LENGTH_SHORT).show()
 
-        if (checkFly == "1") {
-            viewMainModel.convers(mContext)
-            viewMainModel.appsData.observe(viewLifecycleOwner) {
-                if (it != null) {
-                    appCamp = it.toString()
-                    shareP.edit().putString("appCamp", appCamp).apply()
-                    findNavController().navigate(R.id.action_beforeFilter_to_filterFragment)
+        if (checkFly=="1" &&appsCamp == null) {
+                viewMainModel.convers(mContext)
+                viewMainModel.appsData.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        appCamp = it.toString()
+                        shareP.edit().putString("appCamp", appCamp).apply()
+                        findNavController().navigate(R.id.action_beforeFilter_to_filterFragment)
+                    }
                 }
-            }
-        } else {
+            } else {
             findNavController().navigate(R.id.action_beforeFilter_to_filterFragment)
         }
     }

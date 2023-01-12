@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".policy.SecondMainFragment">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Second"
+        android:textSize="60sp"/>
 
 </FrameLayout>

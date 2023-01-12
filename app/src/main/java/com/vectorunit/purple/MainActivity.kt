@@ -14,26 +14,13 @@ import org.koin.core.qualifier.named
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var countryDev: String
-    lateinit var wv: String
-    lateinit var apps: String
-    lateinit var country: String
-    lateinit var appCamp: String
-    lateinit var deepSt: String
-
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val viewMainModel by viewModel<ViMod>(named("MainModel"))
-        GlobalScope.launch (Dispatchers.IO){
-            viewMainModel.getData()
-        }
+//        val viewMainModel by viewModel<ViMod>(named("MainModel"))
+//
+//        GlobalScope.launch (Dispatchers.Main){
+//            viewMainModel.getData()
+//        }
     }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-    }
-
 }

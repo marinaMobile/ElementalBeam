@@ -17,6 +17,7 @@ import com.vectorunit.purple.policy.util.DevRepo
 import com.vectorunit.purple.policy.util.GeoDev
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRepo, private val shP: SharedPreferences, val application: Application): ViewModel() {
@@ -87,7 +88,7 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
 
     private val conversionDataListener  = object : AppsFlyerConversionListener {
         override fun onConversionDataSuccess(data: MutableMap<String, Any>?) {
-            val dataGotten = data?.get("media_source").toString()
+            val dataGotten = data?.get("af_status").toString()
             _appsData.postValue(dataGotten)
         }
         override fun onConversionDataFail(error: String?) {
