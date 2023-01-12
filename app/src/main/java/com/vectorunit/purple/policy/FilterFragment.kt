@@ -82,7 +82,6 @@ class FilterFragment : Fragment() {
                 } else if (deepSt!=null||countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkFB).apply()
                     intentBeam.putExtra("WebInt", "deepLink")
-                    Toast.makeText(mContext, "Deep", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else {
@@ -98,7 +97,6 @@ class FilterFragment : Fragment() {
                 } else if (countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkMT).apply()
                     intentBeam.putExtra("WebInt", "geo")
-                    Toast.makeText(mContext, "GEO", Toast.LENGTH_SHORT).show()
                     startActivity(intentBeam)
                     activity?.finish()
                 } else {
