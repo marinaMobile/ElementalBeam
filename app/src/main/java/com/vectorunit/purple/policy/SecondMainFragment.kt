@@ -15,13 +15,14 @@ import androidx.navigation.fragment.findNavController
 import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.R
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
 
 class SecondMainFragment : Fragment() {
 
-    val viewMainModel by viewModel<ViMod>(named("MainModel"))
+    val viewMainModel by activityViewModel<ViMod>(named("MainModel"))
     lateinit var countryDev: String
     lateinit var wv: String
     lateinit var apps: String
