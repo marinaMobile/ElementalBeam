@@ -131,8 +131,8 @@ class PagerFragment : Fragment() {
     private fun initAlertDialog(gameVariant: GameVariant) {
         AlertDialog.Builder(requireContext())
             .setTitle("Game rules")
-            .setMessage("teext ${gameVariant.enemyName}")
-            .setPositiveButton("Yes, start") { _, _ ->
+            .setMessage("The main task of the game is to find a prize element among a number of elements.\nThe total number of elements is 8. Only one of them is a winner.\nThe cost of one game varies from 100 to 300. The cost of the game will be debited from your balance.\nIf the size of  balance is less than the value of  game, you need to add to the balance.\nBefore starting the game, you need to concentrate as much as possible, turn on your intuition, and then choose one of the 8 elements.\nIf you have chosen the item correctly, you will receive 2x the cost of the game, which will automatically be added to your balance.")
+            .setPositiveButton("Ok, start") { _, _ ->
                 val baaal = totalBalance - currentGameVariant.priceForPlay
                 binding.tvUserBalancePoint.text = baaal.toString()
                 saveBalance(baaal)
