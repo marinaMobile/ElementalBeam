@@ -81,14 +81,13 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
             data?.let {
                 val deepData = data.targetUri?.host.toString()
                 shP.edit().putString("deepSt", deepData).apply()
-                Toast.makeText(cont, deepData, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private val conversionDataListener  = object : AppsFlyerConversionListener {
         override fun onConversionDataSuccess(data: MutableMap<String, Any>?) {
-            val dataGotten = data?.get("af_status").toString()
+            val dataGotten = data?.get("campaign").toString()
             _appsData.postValue(dataGotten)
         }
         override fun onConversionDataFail(error: String?) {
@@ -104,7 +103,6 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
         val advertisingIdClient = AdvertisingIdClient(application)
         advertisingIdClient.start()
         val idUserAdvertising = advertisingIdClient.info.id.toString()
-        Log.d("AdvertId", idUserAdvertising)
         _mainId.postValue(idUserAdvertising)
     }
 

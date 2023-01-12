@@ -44,16 +44,5 @@ class MainFirst : Fragment() {
 
         findNavController().navigate(R.id.action_mainFirst_to_countryFragm)
 
-
-//        viewMainModel.deepS.observeForever {
-//            if(it!=null){
-//                deepSt = it.toString()
-//                shareP.edit().putString("deepSt", deepSt).apply()
-//            } else {
-//                shareP.edit().putString("deepSt", "null").apply()
-//            }
-//
-//        }
-
     }
 }
