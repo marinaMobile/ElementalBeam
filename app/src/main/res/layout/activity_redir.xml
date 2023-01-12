@@ -5,45 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".policy.RedirAct"
-    android:background="@drawable/baba">
+    android:background="@drawable/bababa">
 
-    <Button
-        android:id="@+id/firstBtn"
-        android:layout_width="wrap_content"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#11126C"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="First"/>
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_bold"
+                android:textSize="40sp"
+                android:layout_margin="8dp"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textColor="@color/bg_sec_clr_win"
+                android:text="@string/app_name"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/icooon"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/firstBtn"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#5279C8"
+                    android:textColor="@color/bg_sec_clr_win"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Lucky spin" />
 
     <Button
         android:id="@+id/secBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/firstBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Second"/>
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#5279C8"
+        android:textColor="@color/bg_sec_clr_win"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Spin &amp; win"/>
 
-    <Button
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
         android:id="@+id/polBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/secBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Policy"/>
+        android:layout_margin="16dp"
+                android:textColor="@color/bg_sec_clr_win"
+                android:fontFamily="@font/open_sans_bold"
+                android:backgroundTint="#5279C8"
+        android:text="Privacy Policy"/>
 
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/thirdBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/polBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Third"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 

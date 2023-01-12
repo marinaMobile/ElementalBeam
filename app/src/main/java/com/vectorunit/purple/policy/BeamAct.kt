@@ -7,15 +7,10 @@ import android.net.Uri
 import android.os.*
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.appsflyer.AppsFlyerLib
-import com.vectorunit.purple.MainCla.Companion.C1
-import com.vectorunit.purple.MainCla.Companion.MAIN_ID
 import com.vectorunit.purple.MainCla.Companion.aps_id
-import com.vectorunit.purple.MainCla.Companion.deepL
 import com.vectorunit.purple.MainCla.Companion.myId
 import com.vectorunit.purple.databinding.ActivityBeamBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,6 +24,7 @@ import java.util.*
 class BeamAct : AppCompatActivity() {
     private lateinit var bindBeam: ActivityBeamBinding
     lateinit var beam: WebView
+
 
     private var mFilePathCallback: ValueCallback<Array<Uri>>? = null
     private var mCameraPhotoPath: String? = null
@@ -84,9 +80,6 @@ class BeamAct : AppCompatActivity() {
                 saveUrl(url)
             }
 
-            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
-            }
 
             override fun onReceivedError(
                 view: WebView?,
@@ -185,6 +178,9 @@ class BeamAct : AppCompatActivity() {
 
     private fun urururururururur(): String {
 
+        val spoon = getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
+
+
         val sharPre = getSharedPreferences("SHARED_PREF",
             Context.MODE_PRIVATE)
 
@@ -192,15 +188,10 @@ class BeamAct : AppCompatActivity() {
         val myTrId = sharPre.getString(myId, null)
         val afId = sharPre.getString(aps_id, null)
 
-        val linkNO = "https://www.privacy"
-        val linkNT = "policies.com/live/"
-        val linkNTH = "e0638d9d-11f4-4194-af55-8a8b10c66d2d"
+        val interd = sharPre.getString("WebInt", null)
 
-        val str = Intent().getStringExtra("WebInt")
 
-        Log.d("TESTAG", "urururururururur: $link")
-
-        when (str) {
+        when (interd) {
             "campaign" -> {
                 viewBeamModel.pushToOS(afId.toString())
             }
@@ -213,25 +204,26 @@ class BeamAct : AppCompatActivity() {
             "geo" -> {
                 viewBeamModel.pushToOS(myTrId.toString())
             }
+
         }
 
-        return sharPre.getString("SAVED_URL", link).toString()
+        return spoon.getString("SAVED_URL", link).toString()
     }
 
-    var firsl = ""
+    var urlfififif = ""
     fun saveUrl(lurlurlurlurlur: String?) {
         if (!lurlurlurlurlur!!.contains("t.me")) {
 
-            if (firsl == "") {
-                firsl = getSharedPreferences(
-                    "SHARED_PREF",
-                    MODE_PRIVATE
+            if (urlfififif == "") {
+                urlfififif = getSharedPreferences(
+                    "SP_WEBVIEW_PREFS",
+                    AppCompatActivity.MODE_PRIVATE
                 ).getString(
                     "SAVED_URL",
                     lurlurlurlurlur
                 ).toString()
 
-                val spspspspsppspspsp = getSharedPreferences("SHARED_PREF", MODE_PRIVATE)
+                val spspspspsppspspsp = getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
                 val ededededededed = spspspspsppspspsp.edit()
                 ededededededed.putString("SAVED_URL", lurlurlurlurlur)
                 ededededededed.apply()
@@ -240,11 +232,20 @@ class BeamAct : AppCompatActivity() {
     }
     private var exitexitexitexit = false
     override fun onBackPressed() {
+        val sharPre = getSharedPreferences("SHARED_PREF",
+            Context.MODE_PRIVATE)
 
+        val interd = sharPre.getString("WebInt", null)
+
+
+        if(interd=="policy") {
+            startActivity(Intent(this, RedirAct::class.java))
+            finish()
+        } else if (interd!="policy") {
             if (beam.canGoBack()) {
                 if (exitexitexitexit) {
                     beam.stopLoading()
-                    beam.loadUrl(firsl)
+                    beam.loadUrl(urlfififif)
                 }
                 this.exitexitexitexit = true
                 beam.goBack()
@@ -255,6 +256,8 @@ class BeamAct : AppCompatActivity() {
             } else {
                 super.onBackPressed()
             }
+        }
+
         }
     }
 
