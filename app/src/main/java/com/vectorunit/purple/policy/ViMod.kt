@@ -15,6 +15,9 @@ import com.appsflyer.AppsFlyerLib
 import com.facebook.applinks.AppLinkData
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.kochava.tracker.events.Event
+import com.kochava.tracker.events.EventType
+import com.kochava.tracker.events.Events
 import com.vectorunit.purple.policy.util.CountryCodeJS
 import com.vectorunit.purple.policy.util.CountryRepo
 import com.vectorunit.purple.policy.util.DevRepo
@@ -103,19 +106,31 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
                     BranchEvent(BRANCH_STANDARD_EVENT.ACHIEVE_LEVEL).setDescription("ACI_Search").logEvent(application.applicationContext)
                     str = "first_open_s"
                     instance.logEvent(str, bundle)
+//                    Event.buildWithEventName("ACI_Search").send()
+
+                    Event.buildWithEventType(EventType.ACHIEVEMENT)
+                        .setName("ACI_Search").send()
                 }
                 "ACI_Youtube" -> {
                     BranchEvent(BRANCH_STANDARD_EVENT.SHARE).setDescription("ACI_Youtube").logEvent(application.applicationContext)
                     str = "first_open_y"
                     instance.logEvent(str, bundle)
+
+                    Event.buildWithEventType(EventType.SEARCH)
+                        .setName("ACI_Search").send()
                 }
                 "ACI_Display" -> {
                     BranchEvent(BRANCH_STANDARD_EVENT.RATE).setDescription("ACI_Display").logEvent(application.applicationContext)
                     str = "first_open_d"
                     instance.logEvent(str, bundle)
+                    Event.buildWithEventType(EventType.RATING)
+                        .setName("ACI_Display").send()
                 }
 
                 else ->{
+                    Event.buildWithEventType(EventType.AD_VIEW)
+                        .setName("NoChannel").send()
+
                     BranchEvent(BRANCH_STANDARD_EVENT.VIEW_AD).setDescription("NoChannel").logEvent(application.applicationContext)
                     Log.d("Branch Check", "I'm here, branch bitch! No source though")
                 }

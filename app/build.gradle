@@ -89,4 +89,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     //facebook
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+    //kochava
+    def kochava_tracker_version = "4.2.1"
+    implementation("com.kochava.tracker:tracker:$kochava_tracker_version")
+    implementation("com.kochava.tracker:events:$kochava_tracker_version")
+
 }

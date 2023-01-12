@@ -2,6 +2,7 @@ package com.vectorunit.purple
 
 import android.app.Application
 import android.content.Context
+import com.kochava.tracker.Tracker
 import com.my.tracker.MyTracker
 import com.onesignal.OneSignal
 import com.vectorunit.purple.policy.util.appModule
@@ -43,6 +44,8 @@ class MainCla: Application() {
         // Branch object initialization
         Branch.getAutoInstance(this)
 
+        //Kochava init
+        Tracker.getInstance().startWithAppGuid(applicationContext, "kojoy-of-iridescence-w9gx2r")
 
 
         val shP = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
