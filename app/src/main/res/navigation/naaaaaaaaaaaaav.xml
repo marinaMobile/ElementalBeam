@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/naaaaaaaaaaaaav"
+    app:startDestination="@id/pagerFragment">
+
+    <fragment
+        android:id="@+id/pagerFragment"
+        android:name="com.vectorunit.purple.firstgame.PagerFragment"
+        android:label="fragment_pager"
+        tools:layout="@layout/fragment_pager" >
+        <action
+            android:id="@+id/action_pagerFragment_to_gaaameFragment"
+            app:destination="@id/gaaameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gaaameFragment"
+        android:name="com.vectorunit.purple.firstgame.GaaameFragment"
+        android:label="fragment_gaaame"
+        tools:layout="@layout/fragment_gaaame" >
+        <action
+            android:id="@+id/action_gaaameFragment_to_reloooadingFragment"
+            app:destination="@id/reloooadingFragment" />
+        <argument
+            android:name="game_var"
+            app:argType="com.vectorunit.purple.firstgame.ooother.GameVariant" />
+    </fragment>
+    <fragment
+        android:id="@+id/reloooadingFragment"
+        android:name="com.vectorunit.purple.firstgame.ReloooadingFragment"
+        android:label="fragment_reloooading"
+        tools:layout="@layout/fragment_reloooading" >
+        <action
+            android:id="@+id/action_reloooadingFragment_to_pagerFragment"
+            app:destination="@id/pagerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/pagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
