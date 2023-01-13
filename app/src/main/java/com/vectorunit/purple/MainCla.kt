@@ -2,6 +2,7 @@ package com.vectorunit.purple
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import com.kochava.tracker.Tracker
 import com.my.tracker.MyTracker
 import com.onesignal.OneSignal
@@ -53,18 +54,17 @@ class MainCla: Application() {
 
         val trackerParams = MyTracker.getTrackerParams()
         val trackerConfig = MyTracker.getTrackerConfig()
+
         val instID = MyTracker.getInstanceId(this)
         trackerConfig.isTrackingLaunchEnabled = true
-        val IDIN = UUID.randomUUID().toString()
+
+
 
         if (settings.getBoolean("my_first_time", true)) {
-            trackerParams.setCustomUserId(IDIN)
-            shP.edit().putString(myId, IDIN).apply()
+
             shP.edit().putString(instId, instID).apply()
             settings.edit().putBoolean("my_first_time", false).apply()
         } else {
-            val shIDIN = shP.getString(myId, IDIN)
-            trackerParams.setCustomUserId(shIDIN)
         }
         MyTracker.initTracker("88792592140372975184", this)
 

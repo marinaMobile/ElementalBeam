@@ -10,8 +10,10 @@ import android.util.Log
 import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.MainCla.Companion.aps_id
 import com.vectorunit.purple.MainCla.Companion.myId
+import com.vectorunit.purple.MainCla.Companion.myTrId
 import com.vectorunit.purple.databinding.ActivityBeamBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
@@ -185,7 +187,7 @@ class BeamAct : AppCompatActivity() {
             Context.MODE_PRIVATE)
 
         val link = sharPre.getString("link", null)
-        val myTrId = sharPre.getString(myId, null)
+        val myTrId = sharPre.getString(MainCla.instId, null)
         val afId = sharPre.getString(aps_id, null)
 
         val interd = sharPre.getString("WebInt", null)

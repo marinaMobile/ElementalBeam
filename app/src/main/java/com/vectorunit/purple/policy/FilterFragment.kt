@@ -5,16 +5,17 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.appsflyer.AppsFlyerLib
+import com.my.tracker.MyTracker
 import com.vectorunit.purple.BuildConfig
 import com.vectorunit.purple.MainCla
 import com.vectorunit.purple.MainCla.Companion.aps_id
 import com.vectorunit.purple.R
-import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
@@ -38,6 +39,7 @@ class FilterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val count = shareP.getString("country", null)
         val appCamp = shareP.getString("appCamp", null)
         val deepSt = shareP.getString("deepSt", null)
@@ -47,8 +49,10 @@ class FilterFragment : Fragment() {
         val mainId = shareP.getString("mainId", null)
         val pack = BuildConfig.APPLICATION_ID
         val buildVers = Build.VERSION.RELEASE
-        val myTrId = shareP.getString(MainCla.myId, null)
-        val myInstId: String? = shareP.getString(MainCla.instId, null)
+        val myTrId = shareP.getString(MainCla.instId, null)
+        val trackerParams = MyTracker.getTrackerParams()
+        trackerParams.setCustomUserId(myTrId)
+
 
         val intentBeam = Intent(activity, BeamAct::class.java)
         val intentGame = Intent(activity, RedirAct::class.java)
@@ -68,9 +72,9 @@ class FilterFragment : Fragment() {
         shareP.edit().putString(aps_id, afId).apply()
 
         val linkApps = "$wv?$subOne$appCamp&$one$afId&$ad_id$mainId&$subFour$pack&$subFive$buildVers&$subSix$namm"
-        val linkMT = "$wv?$one$myTrId&$ad_id$myInstId&$subFour$pack&$subFive$buildVers&$subSix$namm"
+        val linkMT = "$wv?$one$myTrId&$ad_id$myTrId&$subFour$pack&$subFive$buildVers&$subSix$namm"
         val linkFB = "$wv?$subOne$deepSt&$one$afId&$ad_id$mainId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
-        val linkFBNullApps = "$wv?$subOne$deepSt&$one$myTrId&$ad_id$myInstId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
+        val linkFBNullApps = "$wv?$subOne$deepSt&$one$myTrId&$ad_id$myTrId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
 
         when(apps) {
             "1" ->
@@ -95,6 +99,7 @@ class FilterFragment : Fragment() {
                     startActivity(intentBeam)
                     activity?.finish()
                 } else if (countryDev!!.contains(count.toString())) {
+                    Log.d("WebTesting", linkMT)
                     shareP.edit().putString("link", linkMT).apply()
                     shareP.edit().putString("WebInt", "geo").apply()
                     startActivity(intentBeam)
