@@ -89,6 +89,7 @@ class ViMod(private val mainRepository: CountryRepo, private val devRepo: DevRep
         ) { data: AppLinkData? ->
             data?.let {
                 val deepData = data.targetUri?.host.toString()
+                Log.d("TAG", deepData)
                 shP.edit().putString("deepSt", deepData).apply()
             }
         }

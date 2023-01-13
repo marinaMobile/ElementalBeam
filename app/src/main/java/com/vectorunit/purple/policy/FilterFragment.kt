@@ -42,7 +42,7 @@ class FilterFragment : Fragment() {
 
         val count = shareP.getString("country", null)
         val appCamp = shareP.getString("appCamp", null)
-        val deepSt = shareP.getString("deepSt", null)
+        val deepSt = shareP.getString("deepSt", "null")
         val countryDev = shareP.getString("countryDev", null)
         val apps = shareP.getString("apps", null)
         val wv = shareP.getString("wv", null)
@@ -71,10 +71,10 @@ class FilterFragment : Fragment() {
 
         shareP.edit().putString(aps_id, afId).apply()
 
-        val linkApps = "$wv?$subOne$appCamp&$one$afId&$ad_id$mainId&$subFour$pack&$subFive$buildVers&$subSix$namm"
-        val linkMT = "$wv?$one$myTrId&$ad_id$myTrId&$subFour$pack&$subFive$buildVers&$subSix$namm"
-        val linkFB = "$wv?$subOne$deepSt&$one$afId&$ad_id$mainId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
-        val linkFBNullApps = "$wv?$subOne$deepSt&$one$myTrId&$ad_id$myTrId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
+        val linkApps = "$wv$subOne$appCamp&$one$afId&$ad_id$mainId&$subFour$pack&$subFive$buildVers&$subSix$namm"
+        val linkMT = "$wv$one$myTrId&$ad_id$myTrId&$subFour$pack&$subFive$buildVers&$subSix$namm"
+        val linkFB = "$wv$subOne$deepSt&$one$afId&$ad_id$mainId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
+        val linkFBNullApps = "$wv$subOne$deepSt&$one$myTrId&$ad_id$myTrId&$subFour$pack&$subFive$buildVers&$subSix$trololo"
 
         when(apps) {
             "1" ->
@@ -86,6 +86,7 @@ class FilterFragment : Fragment() {
                 } else if (deepSt!=null||countryDev!!.contains(count.toString())) {
                     shareP.edit().putString("link", linkFB).apply()
                     shareP.edit().putString("WebInt", "deepLink").apply()
+                    Log.d("TESTAG", linkFB)
                     startActivity(intentBeam)
                     activity?.finish()
                 } else {
